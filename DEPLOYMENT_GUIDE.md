@@ -47,14 +47,61 @@ See `frontend/.env.example` for available variables.
 
 ---
 
-## Backend Deployment (Heroku / Railway / Render)
+## Backend Deployment (PythonAnywhere / Heroku / Railway / Render)
 
 ### Prerequisites
-- Hosting account (Heroku, Railway, Render, or similar)
-- Python 3.12+
-- PostgreSQL database
+- Hosting account (PythonAnywhere, Heroku, Railway, Render, or similar)
+- Python 3.10+
+- PostgreSQL or MySQL database (optional for PythonAnywhere)
 
-### Option A: Deploy to Heroku
+### Option A: Deploy to PythonAnywhere (Recommended for Quick Setup)
+
+1. **Create PythonAnywhere Account**
+   - Go to https://www.pythonanywhere.com
+   - Sign up and login
+
+2. **Clone Your Repository**
+   ```bash
+   cd ~
+   git clone https://github.com/josuoii/coffee-website.git
+   cd coffee-website/backend
+   ```
+
+3. **Create Virtual Environment**
+   ```bash
+   mkvirtualenv --python=/usr/bin/python3.10 coffee_venv
+   pip install -r requirements.txt
+   ```
+
+4. **Configure Django Settings**
+   - Edit `coffee_shop/settings.py`
+   - Add your domain to `ALLOWED_HOSTS`
+   - Set `DEBUG = False`
+
+5. **Collect Static Files**
+   ```bash
+   python manage.py collectstatic --noinput
+   ```
+
+6. **Set Up Database & Migrations**
+   ```bash
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+
+7. **Configure WSGI in PythonAnywhere**
+   - Go to **Web** tab → Select your app
+   - Set virtualenv path to `/home/yourusername/.virtualenvs/coffee_venv`
+   - Update WSGI config file with your project path
+   - Click **Reload**
+
+8. **Set Environment Variables**
+   - Create `.env` in `/home/yourusername/`
+   - Add your SECRET_KEY, DEBUG, ALLOWED_HOSTS, etc.
+
+See `PYTHONANYWHERE_DEPLOYMENT.md` for detailed step-by-step instructions.
+
+### Option B: Deploy to Heroku
 
 1. **Install Heroku CLI**
    ```bash
@@ -95,7 +142,7 @@ See `frontend/.env.example` for available variables.
    heroku run python manage.py createsuperuser -a coffee-shop-api
    ```
 
-### Option B: Deploy to Railway
+### Option C: Deploy to Railway
 
 1. **Connect to Railway**
    - Go to https://railway.app
@@ -113,7 +160,7 @@ See `frontend/.env.example` for available variables.
 4. **Set Environment Variables**
    - In Railway project dashboard, set all variables from `backend/.env.example`
 
-### Option C: Deploy to Render
+### Option D: Deploy to Render
 
 1. **Connect Repository**
    - Go to https://render.com
@@ -185,23 +232,45 @@ python manage.py runserver
 
 ## Deployment Checklist
 
+### Frontend (Vercel)
 - [ ] Frontend pushed to GitHub `main` branch
+- [ ] Vercel project created and connected to GitHub
+- [ ] Root directory set to `frontend`
+- [ ] Build command: `npm run build`
+- [ ] Output directory: `dist`
+- [ ] `VITE_API_BASE_URL` environment variable configured
+
+### Backend (PythonAnywhere / Other)
 - [ ] Backend pushed to GitHub `main` branch
-- [ ] Vercel connected to GitHub and configured
-- [ ] Backend hosting service created and configured
-- [ ] Environment variables set in all services
-- [ ] Database migrations run on backend
-- [ ] API URL configured in frontend environment variables
-- [ ] CORS settings configured in backend
-- [ ] Test API endpoint from frontend
-- [ ] Test login/authentication flow
-- [ ] Monitor logs in hosting provider dashboards
-
----
-
-## Useful Commands
+- [ ] Hosting service account created (PythonAnywhere, Heroku, Railway, or Render)
+- [ ] Repository cloned in hosting service
+- [ ] Virtual environment created with `requirements.txt` installed
+- [ ] Database migrations run: `python manage.py migrate`
+- [ ] Superuser created: `python manage.py createsuperuser`
+- [ ] Static files collected: `python manage.py collectstatic`
+### PythonAnywhere
+- View **Error log** and **Server log** in Web tab
+- Reload app: Click **Reload** button in Web tab
+- Pull updates: `git pull origin main` in bash console
+- Restart: Just click **Reload** again
 
 ### Heroku
+```bash
+heroku logs -a coffee-shop-api --tail       # Stream logs
+heroku config -a coffee-shop-api             # View config vars
+heroku run bash -a coffee-shop-api           # SSH into dyno
+```
+
+### Railway
+```bash
+railway login
+railway status
+railway logs
+```
+
+### Render
+```bash
+# View logs in Render dashboard (no CLI)
 ```bash
 heroku logs -a coffee-shop-api --tail       # Stream logs
 heroku config -a coffee-shop-api             # View config vars
