@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Functionality Test - Kacip Coffee</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        h1 {
+            color: #4a2c2a;
+            border-bottom: 3px solid #d4a574;
+            padding-bottom: 10px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #4a2c2a;
+            margin-top: 0;
+        }
+
+        .test-item {
+            padding: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-left: 4px solid #d4a574;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pending {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .pass {
+            background: #4caf50;
+            color: white;
+        }
+
+        .fail {
+            background: #f44336;
+            color: white;
+        }
+
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 Kacip Coffee - Button Functionality Test Checklist</h1>
+
+    <div class="info">
+        <strong>📋 Testing Instructions:</strong><br>
+        1. Open your browser to <code>http://localhost:5173</code><br>
+        2. Follow the test cases below<br>
+        3. Mark each test as PASS or FAIL based on the expected behavior
+    </div>
+
+    <div class="section">
+        <h2>🏠 HomePage Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 1:</strong> Click "Explore Menu" button → Should navigate to /menu</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 2:</strong> Click "Find a Store" button → Should navigate to /stores</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 3:</strong> Click "Add to Cart" on popular item → Should show toast + cart count
+                increases</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 4:</strong> Click "View Full Menu" button → Should navigate to /menu</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 5:</strong> Click "Get Started" (Rewards CTA) → Should navigate to /rewards</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🍕 MenuPage Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 6:</strong> Type in search box → Should filter menu items</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 7:</strong> Click "Coffee" category → Should show only coffee items</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 8:</strong> Click "All Items" → Should show all menu items</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 9:</strong> Click "Add" button on menu item → Should show toast + cart count
+                increases</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎁 RewardsPage Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 10:</strong> Click "Join Now - It's Free!" → Should show toast "Rewards program
+                registration coming soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 11:</strong> Click "Create Your Account" → Should show toast "Rewards program
+                registration coming soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📍 StoresPage Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 12:</strong> Click city filter button → Should filter stores by city</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 13:</strong> Click "Get Directions" → Should open Google Maps in new tab</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 14:</strong> Click "Order Now" → Should show toast "Order feature coming soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 15:</strong> Click "Notify Me" → Should show toast "Notification feature coming
+                soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>ℹ️ AboutPage Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 16:</strong> Click "Visit a Store" → Should navigate to /stores</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 17:</strong> Click "Join Rewards" → Should navigate to /rewards</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Header Tests</h2>
+        <div class="test-item">
+            <span><strong>Test 18:</strong> Cart icon shows count when items added → Badge should appear with
+                number</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 19:</strong> Click "Order Now" (desktop) → Should show toast "Order feature coming
+                soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 20:</strong> Open mobile menu → All navigation links should work</span>
+            <span class="status pending">PENDING</span>
+        </div>
+        <div class="test-item">
+            <span><strong>Test 21:</strong> Click "Sign In" (mobile) → Should show toast "Sign in feature coming
+                soon!"</span>
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="info">
+        <strong>✅ Expected Results Summary:</strong><br>
+        • All navigation buttons should use React Router (no page reload)<br>
+        • All "Add to Cart" buttons should increase cart count and show success toast<br>
+        • All action buttons should show appropriate toast notifications<br>
+        • "Get Directions" should open Google Maps in new tab<br>
+        • Search and filters should work in real-time<br>
+        • Mobile menu should close after navigation
+    </div>
+
+    <div class="section">
+        <h2>📊 Test Summary</h2>
+        <p><strong>Total Tests:</strong> 21</p>
+        <p><strong>Passed:</strong> <span id="passed">0</span></p>
+        <p><strong>Failed:</strong> <span id="failed">0</span></p>
+        <p><strong>Pending:</strong> <span id="pending">21</span></p>
+    </div>
+
+    <script>
+        // Simple script to update test status
+        document.querySelectorAll('.test-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const statusEl = this.querySelector('.status');
+                if (statusEl.classList.contains('pending')) {
+                    statusEl.classList.remove('pending');
+                    statusEl.classList.add('pass');
+                    statusEl.textContent = 'PASS';
+                } else if (statusEl.classList.contains('pass')) {
+                    statusEl.classList.remove('pass');
+                    statusEl.classList.add('fail');
+                    statusEl.textContent = 'FAIL';
+                } else {
+                    statusEl.classList.remove('fail');
+                    statusEl.classList.add('pending');
+                    statusEl.textContent = 'PENDING';
+                }
+                updateSummary();
+            });
+        });
+
+        function updateSummary() {
+            const passed = document.querySelectorAll('.pass').length;
+            const failed = document.querySelectorAll('.fail').length;
+            const pending = document.querySelectorAll('.pending').length;
+
+            document.getElementById('passed').textContent = passed;
+            document.getElementById('failed').textContent = failed;
+            document.getElementById('pending').textContent = pending;
+        }
+    </script>
+</body>
+
+</html>

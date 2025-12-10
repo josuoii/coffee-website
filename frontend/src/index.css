@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Coffee-themed color palette */
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    /* Coffee brown primary colors */
+    --primary: 25 47% 35%;
+    --primary-foreground: 60 9.1% 97.8%;
+
+    /* Warm secondary colors */
+    --secondary: 30 40% 92%;
+    --secondary-foreground: 25 47% 35%;
+
+    /* Accent - Coffee cream */
+    --accent: 35 55% 88%;
+    --accent-foreground: 25 47% 35%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 25 47% 35%;
+    --radius: 0.75rem;
+
+    /* Custom coffee colors */
+    --coffee-dark: 25 47% 25%;
+    --coffee-medium: 25 47% 35%;
+    --coffee-light: 30 40% 92%;
+    --coffee-cream: 35 55% 88%;
+    --coffee-gold: 45 100% 51%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 35 55% 88%;
+    --primary-foreground: 25 47% 25%;
+    --secondary: 25 47% 15%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --accent: 25 47% 20%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 35 55% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+}
+
+@layer components {
+
+  /* Gradient backgrounds */
+  .bg-gradient-coffee {
+    background: linear-gradient(135deg, hsl(var(--coffee-medium)) 0%, hsl(var(--coffee-dark)) 100%);
+  }
+
+  .bg-gradient-cream {
+    background: linear-gradient(135deg, hsl(var(--coffee-cream)) 0%, hsl(var(--coffee-light)) 100%);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-smooth;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Custom scrollbar - Chocolate Theme */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #EFEBE9;
+    /* Chocolate cream */
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+    /* Light to milk chocolate */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #6D4C41 0%, #5D4037 100%);
+    /* Milk to dark chocolate */
+  }
+
+  /* Hidden scrollbar but still scrollable */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+  }
+
+  /* Thin elegant scrollbar - Alternative */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(109, 76, 65, 0.3);
+    /* Milk chocolate with transparency */
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(109, 76, 65, 0.6);
+    /* Darker on hover */
+  }
+
+  /* Animated gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--coffee-medium)), hsl(var(--coffee-gold)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Text shadow utilities */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
